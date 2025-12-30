@@ -28,9 +28,8 @@ C_SOURCES = $(shell find . -name "*.c" -not -path "./.*" -not -path "./libwebp/*
 OBJC_SOURCES = $(shell find . -name "*.m" -not -path "./.*" -not -path "./libwebp/*")
 OBJCPP_SOURCES = $(shell find . -name "*.mm" -not -path "./.*" -not -path "./libwebp/*")
 XM_SOURCES = $(shell find . -name "*.xm" -not -path "./.*" -not -path "./libwebp/*")
-SWIFT_SOURCES = $(shell find . -name "*.swift" -not -path "./.*" -not -path "./libwebp/*")
 
-$(TWEAK_NAME)_FILES = $(C_SOURCES) $(OBJC_SOURCES) $(OBJCPP_SOURCES) $(XM_SOURCES) $(SWIFT_SOURCES)
+$(TWEAK_NAME)_FILES = $(C_SOURCES) $(OBJC_SOURCES) $(OBJCPP_SOURCES) $(XM_SOURCES)
 $(TWEAK_NAME)_CFLAGS = -fobjc-arc -w -Wno-deprecated-declarations
 
 # 库搜索路径和头文件路径
@@ -38,9 +37,8 @@ $(TWEAK_NAME)_LIBRARY_SEARCH_PATHS = $(THEOS_PROJECT_DIR)/libs/lib
 $(TWEAK_NAME)_HEADER_SEARCH_PATHS = $(THEOS_PROJECT_DIR)/libs/include
 $(TWEAK_NAME)_CFLAGS += -I$($(TWEAK_NAME)_HEADER_SEARCH_PATHS)
 
-$(TWEAK_NAME)_FRAMEWORKS = UIKit Foundation CoreFoundation CoreAudio SwiftUI
+$(TWEAK_NAME)_FRAMEWORKS = UIKit Foundation CoreFoundation CoreAudio
 $(TWEAK_NAME)_LDFLAGS = -L$($(TWEAK_NAME)_LIBRARY_SEARCH_PATHS) -lwebp -weak_framework AVFAudio
-$(TWEAK_NAME)_SWIFTFLAGS = -swift-version 5
 
 # 链接库
 $(TWEAK_NAME)_LIBRARIES = 
