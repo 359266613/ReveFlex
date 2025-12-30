@@ -23,11 +23,11 @@ include $(THEOS)/makefiles/common.mk
 # 插件名称
 TWEAK_NAME = ReveFlex
 
-# 源代码文件 - 使用动态关联
-C_SOURCES = $(shell find . -name "*.c" -not -path "./.*" -not -path "./libwebp/*")
-OBJC_SOURCES = $(shell find . -name "*.m" -not -path "./.*" -not -path "./libwebp/*")
-OBJCPP_SOURCES = $(shell find . -name "*.mm" -not -path "./.*" -not -path "./libwebp/*")
-XM_SOURCES = $(shell find . -name "*.xm" -not -path "./.*" -not -path "./libwebp/*")
+# 源代码文件 - 使用动态关联，排除libwebp和theos目录
+C_SOURCES = $(shell find . -name "*.c" -not -path "./.*" -not -path "./libwebp/*" -not -path "./theos/*")
+OBJC_SOURCES = $(shell find . -name "*.m" -not -path "./.*" -not -path "./libwebp/*" -not -path "./theos/*")
+OBJCPP_SOURCES = $(shell find . -name "*.mm" -not -path "./.*" -not -path "./libwebp/*" -not -path "./theos/*")
+XM_SOURCES = $(shell find . -name "*.xm" -not -path "./.*" -not -path "./libwebp/*" -not -path "./theos/*")
 
 $(TWEAK_NAME)_FILES = $(C_SOURCES) $(OBJC_SOURCES) $(OBJCPP_SOURCES) $(XM_SOURCES)
 $(TWEAK_NAME)_CFLAGS = -fobjc-arc -w -Wno-deprecated-declarations
