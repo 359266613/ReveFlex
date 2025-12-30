@@ -4,7 +4,6 @@ name: CI
 on:
   push:
     paths:
-      - '.github/workflows/build.yml'  # 监控工作流配置文件
       - '*.xm'  # 监控所有Logos钩子文件
       - '*.m'  # 监控Objective-C源文件
       - '*.mm'  # 监控Objective-C++源文件
@@ -34,7 +33,6 @@ jobs:
         run: |
           make clean
           make package FINALPACKAGE=1 THEOS_PACKAGE_SCHEME=rootless
-          make clean
           make package FINALPACKAGE=1 THEOS_PACKAGE_SCHEME=roothide
 
       - name: List generated DEBs
