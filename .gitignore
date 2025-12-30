@@ -1,0 +1,31 @@
+# Theos构建缓存
+.theos/
+_/
+obj/
+
+# 编译产物
+*.deb
+packages/
+
+# 调试符号
+*.dSYM/
+
+# macOS系统文件
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Windows系统文件
+Thumbs.db
+desktop.ini
+
+# 编辑器配置
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# 临时文件
+*.log
+*.tmp
